@@ -1,0 +1,36 @@
+classDiagram
+    class LibraryItem {
+        -int id
+        -string title
+        +LibraryItem(int, string)
+        +int getId()
+        +string getTitle()
+        +display()*
+    }
+
+    class Book {
+        -string author
+        -bool available
+        +Book(int, string, string, bool)
+        +string getAuthor()
+        +bool isAvailable()
+        +issue()
+        +returnBook()
+        +display()
+    }
+
+    class Library {
+        -vector~Book~ books
+        -string fileName
+        -findBook(int)
+        +loadBooks()
+        +saveBooks()
+        +addBook(int, string, string)
+        +listBooks()
+        +searchBook(int)
+        +issueBook(int)
+        +returnBook(int)
+    }
+
+    LibraryItem <|-- Book : inherits
+    Library o-- "0..*" Book : stores
